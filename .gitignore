@@ -7,3 +7,4 @@ src/test/java/webApp/zOther/**
 /CutPaste.bat
 /TestProperties.out.xml
 /StoredCredential
+/target/**
