@@ -1,0 +1,9 @@
+/target/**
+log/**
+src/test/java/webApp/zOther/**
+/.settings/**
+/Data/webApi.Google/**
+/Data/TestProperties.out.xml
+/CutPaste.bat
+/TestProperties.out.xml
+/StoredCredential
