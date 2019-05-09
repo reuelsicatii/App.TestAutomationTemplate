@@ -22,7 +22,7 @@ import test.Utilities.Mail;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox", "webApp.AccessHub"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SrsSmokeTestManageUsers.html","rerun:target/ManageUsersRerun.txt"},
-        tags = {"@ManageUsers"}
+        tags = {"@ManageUsers_TS04"}
    
 )
 
@@ -40,7 +40,7 @@ public class R1_SrsSmokeTestManageUsers extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestSupportMenuReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestManageUsers.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -49,7 +49,7 @@ public class R1_SrsSmokeTestManageUsers extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("R1_SrsSmokeTestSupportMenuReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Manage Users:"+testStatus+") - ");
+		Mail.SendReport("R1_SrsSmokeTestManageUsers.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Manage Users:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }
