@@ -71,10 +71,14 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	WebElement FirstDeleteUser_button;
 	
 	public static final WebElement EditIconOfSpecificUser(String email){
-		WebElement editIconOfSpecificUser = driver.findElement(By.xpath("//a[text()='"+email+"']/ancestor::tr//a[@alt='Edit User']"));
+		WebElement editIconOfSpecificUser = driver.findElement(By.xpath("(//a[contains(text(),'"+email+"')]/ancestor::tr//a[@title='Delete User'])[1]"));
 		return editIconOfSpecificUser;
 	}
 	
+	public static final WebElement DeleteIconOfSpecificUser(String email){
+		WebElement deleteIconOfSpecificUser = driver.findElement(By.xpath("(//a[contains(text(),'"+email+"')]/ancestor::tr//a[@title='Delete User'])[1]"));
+		return deleteIconOfSpecificUser;
+	}
 	
 	public SEO22_SettingsUsers() {
 		PageFactory.initElements(driver, this);
@@ -253,9 +257,14 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	}
 	
 	@When("^I click the first SEO22_DeleteUser button")
-	public void i_click_theA_first_delete_user_button() throws Throwable, UnhandledAlertException {
-		FirstDeleteUser_button.click();
-		
+	public void i_click_the_first_delete_user_button() throws Throwable, UnhandledAlertException {
+		FirstDeleteUser_button.click();		
+	}
+	
+	
+	@When("^I click the SEO22_DeleteUser button of ([^\"]*)")
+	public void i_click_the_delete_user_button_of_varibale(String email) throws Throwable, UnhandledAlertException {
+		DeleteIconOfSpecificUser(email).click();		
 	}
 	
 
