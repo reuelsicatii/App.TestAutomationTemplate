@@ -8,3 +8,4 @@ src/test/java/webApp/zOther/**
 /TestProperties.out.xml
 /StoredCredential
 /target/**
+/target/
