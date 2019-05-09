@@ -162,13 +162,6 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     When I click the SEO01_UserAvatar button
     And I click the SEO01_ManageUsers list
     Then Ill be able to see the SEO22_ManageUsers Page
-    When I click the SEO22_AddNewUser button
-    And I populate SEO22_EmailAddress textfield with <userEmailAdd>
-    And I populate SEO22_Username textfield with <username>
-    And I select <roleClassification> in SEO22_Role dropdown
-    And I populate SEO22_Password textfield with <userPassword>
-    And I click the SEO22_Save button
-    Then Ill see the SEO23_ProfileInformation header
     When I click the SEO01_UserAvatar button
     And I click the SEO01_ManageUsers list
     Then Ill be able to see the SEO22_ManageUsers Page
@@ -181,8 +174,8 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
 
     Examples: 
       | FirstName | LastName   | email                     | password  | userEmailAdd           | username     | roleClassification | userPassword |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS02@gmail.com | EmployeeTS02 | Employee           | emp12345     |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS02@gmail.com   | ClientTS02   | Client             | cli12345     |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS06@gmail.com | EmployeeTS02 | Employee           | emp12345     |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS06@gmail.com   | ClientTS02   | Client             | cli12345     |
 
   #Scenario Description:
   #Given I am a Partner
@@ -202,7 +195,9 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     When I click the SEO01_UserAvatar button
     And I click the SEO01_ManageUsers list
     Then Ill be able to see the SEO22_ManageUsers Page
-    When I click the SEO22_Edit button of <userEmailAdd>
+    When I populate SEO22_Search textfield with <userEmailAdd>
+    And I click the SEO22_Search button
+    And I click the SEO22_Edit button of <userEmailAdd>
     And I toggle SEO23_InvoicesSwitch icon
     And I click the SEO23_SavePermissions button
     And I click the SEO00_Home link
@@ -216,6 +211,8 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     When I navigate to "Login"
     And I click the SEO01_UserAvatar button
     And I click the SEO01_ManageUsers list
+    And I populate SEO22_Search textfield with <userEmailAdd>
+    And I click the SEO22_Search button
     And I click the SEO22_Edit button of <userEmailAdd>
     And I toggle SEO23_InvoicesSwitch icon
     And I click the SEO23_SavePermissions button
@@ -225,5 +222,5 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     Then Ill not see the ACH00_Invoices icon
 
     Examples: 
-      | FirstName | LastName   | email                     | password  | userEmailAdd                     | username                   | userPassword |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS02+190204855@gmail.com | EmployeeTS0220190204165732 | emp12345     |
+      | FirstName | LastName   | email                     | password  | userEmailAdd               | username         | userPassword |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS06Edit@gmail.com | EmployeeTS06Edit | emp12345     |
