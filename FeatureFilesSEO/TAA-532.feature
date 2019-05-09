@@ -9,7 +9,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #Then Ill see the Add New User Modal
   #And Ill see that the UI of Add New User Modal is aligned with the requirements
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS01 @TAA-535
-  Scenario Outline: TAA-535
+  Scenario Outline: ManageUsers_TS01
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
@@ -40,7 +40,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #And I click the Add New User button
   #Then Ill be able to add New Users
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS02 @TAA-539
-  Scenario Outline: TAA-539
+  Scenario Outline: ManageUsers_TS02
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
@@ -70,7 +70,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #And the email is already used in same/other partner account
   #Then Ill see the "This Email is already in use." text
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS03 @TAA-541
-  Scenario Outline: TAA-541
+  Scenario Outline: ManageUsers_TS03
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
@@ -87,9 +87,9 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     Then Ill see the SEO22_EmailAlreadyUsed 'This Email is already in use.' text
 
     Examples: 
-      | FirstName | LastName   | email                     | password  | userEmailAdd                     |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS02+190204855@gmail.com |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | lorraine@truelogic.com.ph        |
+      | FirstName | LastName   | email                     | password  | userEmailAdd                    | username     | roleClassification | userPassword |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS03Duplicate@gmail.com | EmployeeTS02 | Employee           | emp12345     |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS03Duplicate@gmail.com   | ClientTS02   | Client             | cli12345     |
 
   #Scenario Description:
   #When I navigate to the Manage Users Page
@@ -97,7 +97,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #And the suername is already used in same/other partner account
   #Then Ill see the "The Username field must contain a unique value." text
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS04 @TAA-543
-  Scenario Outline: TAA-541
+  Scenario Outline: ManageUsers_TS04
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
@@ -124,7 +124,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #And the password is less than 8 characters
   #Then Ill see the "The Password field must be at least 8 characters in length." text
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS05 @TAA-545
-  Scenario Outline: TAA-545
+  Scenario Outline: ManageUsers_TS05
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
@@ -151,7 +151,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #Then Ill see the Delete User Modal
   #And Ill see that the UI of Delete User Modal is aligned with the requirements
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS06 @TAA-547
-  Scenario Outline: TAA-547
+  Scenario Outline: ManageUsers_TS06
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
@@ -191,7 +191,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #And I access Branded Dashboard
   #Then Ill see that the invoices icon is available
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS13 @TAA-556
-  Scenario Outline: TAA-556
+  Scenario Outline: ManageUsers_TS13
     Given Im a new Partner
     When I navigate to "Login"
     And I populate the SEOE6_EmailAddress textfield with <email>
