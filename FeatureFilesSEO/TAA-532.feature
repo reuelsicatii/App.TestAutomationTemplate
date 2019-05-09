@@ -114,9 +114,9 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     Then Ill see the SEO22_UsernamMustBeUnique 'The Username field must contain a unique value.' text
 
     Examples: 
-      | FirstName | LastName   | email                     | password  | username                   |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS0220190204165732 |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | lorraine                   |
+      | FirstName | LastName   | email                     | password  | username           |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS04Unique |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS04Unique   |
 
   #Scenario Description:
   #When I navigate to the Manage Users Page
