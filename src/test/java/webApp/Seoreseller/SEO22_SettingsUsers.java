@@ -73,6 +73,9 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@FindBy(xpath="//div[text()='Are you sure you want to delete this user?']")
 	WebElement AreYouSureYouWantToDeleteUser_text;
 	
+	@FindBy(xpath="//div[text()='User successfully deleted']")
+	WebElement UserSuccessfullyDeleted_text;
+	
 	@FindBy(xpath="(//a[@title='Delete User'])[1]")
 	WebElement FirstDeleteUser_button;
 	
@@ -95,6 +98,7 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	public void ill_see_manage_users_page() throws Throwable, UnhandledAlertException {
 		WD.until(ExpectedConditions.elementToBeClickable(AddNewUser_button));
  		Assert.assertEquals(true, ManageUsers_header.isDisplayed());
+ 		Thread.sleep(5000);
 	}
 	
 	
@@ -228,6 +232,14 @@ public class SEO22_SettingsUsers extends WEBHelper{
 		WD.until(ExpectedConditions.elementToBeClickable(Yes_button));
 		Assert.assertEquals(true, DeleteUser_header.isDisplayed());
 
+	}	
+	
+	@When("^I click the SEO22_YesDelete button")
+	public void i_click_the_YesDelete_butto() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(Yes_button));		
+		Assert.assertEquals(true, DeleteUser_header.isDisplayed());
+		Yes_button.click();
+
 	}
 	
 	@Then("^Ill see the SEO22_Yes button")
@@ -258,6 +270,12 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@Then("^Ill see the SEO22_Confirmation 'Are you sure you want to delete this user' text")
 	public void i_see_are_you_sure_you_want_to_delete_text(){
 		Assert.assertEquals(true, AreYouSureYouWantToDeleteUser_text.isDisplayed());
+
+	}
+	
+	@Then("^Ill see the SEO22_Confirmation 'User successfully deleted' text")
+	public void ill_see_the_confirmation_user_successfully_deleted_text(){
+		Assert.assertEquals(true, UserSuccessfullyDeleted_text.isDisplayed());
 
 	}
 	
