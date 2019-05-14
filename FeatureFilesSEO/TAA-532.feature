@@ -182,8 +182,8 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
   #Scenario Description:
   #Given I am a Partner
   #When I navigate to the Manage Users Page
-  #And I delecte a user button
-  #Then Ill see the SEO**_SuccessDeletion "User successfully deleted" notification
+  #And I delete a user
+  #Then Ill see the SEO22_SuccessDeletion "User successfully deleted" notification
   @SRSSMOKETEST @ManageUsers @ManageUsers_TS07 @TAA-611
   Scenario Outline: ManageUsers_TS07
     Given Im a new Partner
@@ -193,9 +193,6 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     And I click the SEO06_LoginToYourDashBoard button
     And I wait for page to load
     Then Ill see the SEO00_Dashboard page
-    When I click the SEO01_UserAvatar button
-    And I click the SEO01_ManageUsers list
-    Then Ill be able to see the SEO22_ManageUsers Page
     When I click the SEO01_UserAvatar button
     And I click the SEO01_ManageUsers list
     Then Ill be able to see the SEO22_ManageUsers Page
@@ -221,6 +218,40 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
       | FirstName | LastName   | email                     | password  | userEmailAdd           | username     | roleClassification | userPassword |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS07@gmail.com | EmployeeTS07 | Employee           | emp12345     |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS07@gmail.com   | ClientTS07   | Client             | cli12345     |
+
+  #Scenario Description:
+  #Given I am a Partner
+  #When I navigate to the Manage Users Page
+  #And I attempt delete a user
+  #And I choose cancel/no instead
+  #Then Ill not see the SEO22_SuccessDeletion "User successfully deleted" notification
+  @SRSSMOKETEST @ManageUsers @ManageUsers_TS08 @TAA-550
+  Scenario Outline: ManageUsers_TS08
+    Given Im a new Partner
+    When I navigate to "Login"
+    And I populate the SEOE6_EmailAddress textfield with <email>
+    And I populate the SEOE6_Password textfield with <password>
+    And I click the SEO06_LoginToYourDashBoard button
+    And I wait for page to load
+    Then Ill see the SEO00_Dashboard page
+    When I click the SEO01_UserAvatar button
+    And I click the SEO01_ManageUsers list
+    Then Ill be able to see the SEO22_ManageUsers Page
+    When I click the SEO01_UserAvatar button
+    And I click the SEO01_ManageUsers list
+    Then Ill be able to see the SEO22_ManageUsers Page
+    When I populate SEO22_Search textfield with <username>
+    And I click the SEO22_Search button
+    And I click the SEO22_DeleteUser button of <username>
+    Then Ill see the SEO22_DeleteUser Modal
+    And Ill see the SEO22_Confirmation 'Are you sure you want to delete this user' text
+    When I click the SEO22_NoDelete button
+    Then Ill not see the SEO22_Confirmation 'User successfully deleted' text
+
+    Examples: 
+      | FirstName | LastName   | email                     | password  | userEmailAdd           | username     | roleClassification | userPassword |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS08@gmail.com | EmployeeTS08 | Employee           | emp12345     |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS08@gmail.com   | ClientTS08   | Client             | cli12345     |
 
   #Scenario Description:
   #Given I am a Partner
