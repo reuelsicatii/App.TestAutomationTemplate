@@ -40,7 +40,7 @@ public class R1_SrsSmokeTestManageUsers extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestSupportMenuReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestManageUsers.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -49,7 +49,7 @@ public class R1_SrsSmokeTestManageUsers extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("R1_SrsSmokeTestSupportMenuReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Manage Users:"+testStatus+") - ");
+		Mail.SendReport("R1_SrsSmokeTestManageUsers.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Manage Users:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

@@ -28,6 +28,9 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@FindBy(xpath="//input[@id='user_username']")
 	WebElement Username_textfield;
 	
+	@FindBy(xpath="//input[@placeholder='Search by Email']")
+	WebElement Search_textfield;
+	
 	@FindBy(xpath="//input[@id='password']")
 	WebElement Password_textfield;
 	
@@ -39,6 +42,9 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	
 	@FindBy(xpath="//button[text()='Save']")
 	WebElement Save_button;
+	
+	@FindBy(xpath="//button[@class='btn btn-secondary apply-filter-btn']")
+	WebElement Search_button;
 	
 	@FindBy(xpath="//button[text()='Close']")
 	WebElement Close_button;
@@ -71,7 +77,7 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	WebElement FirstDeleteUser_button;
 	
 	public static final WebElement EditIconOfSpecificUser(String email){
-		WebElement editIconOfSpecificUser = driver.findElement(By.xpath("(//a[contains(text(),'"+email+"')]/ancestor::tr//a[@title='Delete User'])[1]"));
+		WebElement editIconOfSpecificUser = driver.findElement(By.xpath("(//a[contains(text(),'"+email+"')]/ancestor::tr//a[@title='Edit User'])[1]"));
 		return editIconOfSpecificUser;
 	}
 	
@@ -194,8 +200,7 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	
 	@When("^I click the SEO22_Save button")
 	public void i_click_save_button() throws Throwable, UnhandledAlertException {
-		Save_button.click();
-		
+		Save_button.click();		
 	}
 	
 	@Then("^Ill see the SEO22_EmailAlreadyUsed 'This Email is already in use.' text")
@@ -271,6 +276,18 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@When("^I click the SEO22_Edit button of ([^\"]*)")
 	public void i_click_edit_icon_of_user_value(String email) throws Throwable, UnhandledAlertException {
 		EditIconOfSpecificUser(email).click();		
+	}
+	
+	@When("^I populate SEO22_Search textfield with ([^\"]*)")
+	public void i_populate_search_textfield_with_variable(String Email) throws Throwable, UnhandledAlertException {
+		Search_textfield.sendKeys(Email);	
+	}
+	
+	@When("^I click the SEO22_Search button")
+	public void i_click_search_button() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Search_button.click();	
+		Thread.sleep(5000);
 	}
 	
 }
