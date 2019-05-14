@@ -280,6 +280,7 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	
 	@When("^I populate SEO22_Search textfield with ([^\"]*)")
 	public void i_populate_search_textfield_with_variable(String Email) throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
 		Search_textfield.sendKeys(Email);	
 	}
 	
