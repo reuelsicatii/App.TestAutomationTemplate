@@ -177,7 +177,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     Examples: 
       | FirstName | LastName   | email                     | password  | userEmailAdd           | username     | roleClassification | userPassword |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS06@gmail.com | EmployeeTS06 | Employee           | emp12345     |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS06@gmail.com   | EmployeeTS06 | Client             | cli12345     |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | ClientTS06@gmail.com   | ClientTS06 | Client             | cli12345     |
 
   #Scenario Description:
   #Given I am a Partner
