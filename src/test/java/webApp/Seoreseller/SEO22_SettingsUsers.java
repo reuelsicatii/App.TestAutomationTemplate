@@ -198,6 +198,7 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	
 	@When("^I populate SEO22_Password textfield with ([^\"]*)")
 	public void i_populate_password_textfield_with_value(String password) throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
 		Password_textfield.sendKeys(password);
 		
 	}
