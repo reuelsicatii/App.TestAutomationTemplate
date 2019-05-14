@@ -165,7 +165,7 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     When I click the SEO01_UserAvatar button
     And I click the SEO01_ManageUsers list
     Then Ill be able to see the SEO22_ManageUsers Page
-    When I populate SEO22_Search textfield with <userEmailAdd>
+    When I populate SEO22_Search textfield with <username>
     And I click the SEO22_Search button
     And I click the SEO22_DeleteUser button of <username>
     Then Ill see the SEO22_DeleteUser Modal
@@ -268,4 +268,4 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
 
     Examples: 
       | FirstName | LastName   | email                     | password  | userEmailAdd               | username         | userPassword |
-      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS06Edit@gmail.com | EmployeeTS06Edit | emp12345     |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 | EmployeeTS13Edit@gmail.com | EmployeeTS13Edit | emp12345     |
