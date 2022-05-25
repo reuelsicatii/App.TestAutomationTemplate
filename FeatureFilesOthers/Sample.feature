@@ -95,5 +95,5 @@ Feature: [TAA-519] [SEOReseller]
 
     Examples: 
       | Email                    | Password |
-      | clayton@truelogic.com.ph | happy123 |
-      | melissa+2@truelogic.com.ph | testingg |
+      | test@test.com 		 | test123 |
+      | sample@sample.com 	 | testingg |
